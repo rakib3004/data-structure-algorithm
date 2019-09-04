@@ -50,14 +50,14 @@ void insertAtEnding(Node *newNode){
 void  traverseForward(){
 
     for(Node * current = head ; current != NULL; current= current->next) {
-    cout<<current->data<<" ";
+    cout<<current->data<<">>";
     }
     cout<<endl;
                 }
 void traverseBackward(){
 
     for(Node * current = tail ; current != NULL; current= current->prev){
-     cout<<current->data<<" ";
+     cout<<current->data<<">>";
     }
    cout<<endl;
             }
@@ -78,6 +78,7 @@ cout<<"======================================="<<endl;
     cin>>n;
    cout<<"Please put your input :";
    for(i=0; i<n; i++) {
+   cout<<(i+1)+"th element>>"
      cin>>input;
       insertAtBeginning(creatNode(input));
     }
@@ -94,6 +95,7 @@ cout<<"======================================="<<endl;
     cout<<"Please put your input :";
 
     for(i=0; i<n; i++){
+    cout<<(i+1)+"th element>>"
         cin>>input;
         insertAtEnding(creatNode(input));
     }
