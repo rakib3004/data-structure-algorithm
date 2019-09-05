@@ -68,6 +68,32 @@ void deleteFirstdNode()
         else tail =NULL;
 
 }
+void deleteLastdNode()
+{
+
+    if(tail==NULL){
+      return;
+    }
+    Node * NodeToDelete = tail;
+    tail = tail->prev ;
+    delete NodeToDelete;
+    if(tail!=NULL)
+        tail->next = NULL;
+        else head =NULL;
+
+}
+void deleteMiddleNode()
+{
+
+
+    Node* NodeToDelete searchNode(value);
+    if(NodeToDelete!=NULL){
+        NodeToDelete->prev->next = NodeToDelete->next;
+        NodeToDelete->next->prev = NodeToDelete->prev;
+        delete NodeToDelete;
+    }
+}
+
 
 void traverseBackward(){
 
