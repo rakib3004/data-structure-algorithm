@@ -71,7 +71,7 @@ void deleteFirstdNode()
 
 void traverseBackward(){
 
-    for(Node * current = tail ; current != NULL; current= current->prev){
+    for(Node* current = tail ; current != NULL; current= current->prev){
      cout<<current->data<<" ";
     }
    cout<<endl;
@@ -86,7 +86,7 @@ Node* searchNode(int value){
          return NULL;
 }
 
-void insertAfterNode(Node* previous ,Node *newNode){
+void insertAfterNode(Node* previous ,Node* newNode){
   newNode->next =previous->next;
   newNode->prev= previous;
   previous->next->prev = newNode;
@@ -94,6 +94,14 @@ void insertAfterNode(Node* previous ,Node *newNode){
 
 
 }
+void insertBeforeNode(Node* nextious ,Node* newNode){
+  newNode->prev = nextious->prev;
+  newNode->next =nextious;
+  nextious->prev->next =newNode;
+  nextious->prev = newNode;
+
+}
+
 
 int main(){
 
