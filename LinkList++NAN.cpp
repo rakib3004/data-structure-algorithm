@@ -163,7 +163,8 @@ cout<<"======================================="<<endl;
  int i,n,input,option,previousNode,nextNode;
  creatLinkList();
    Menu_of_Introduction :
-   cout<<"Now start insert at beginning program........."<<endl<<endl;
+       
+   cout<<endl<<endl;
    cout<<"What do you want ?"<<endl;
    cout<<"1.traverse from forward>>"<<endl;
    cout<<"2.traverse from backward>>>"<<endl;
@@ -174,9 +175,10 @@ cout<<"======================================="<<endl;
    cout<<"7.delete at beginning >>>>>>>>>>"<<endl;
    cout<<"8.delete at ending >>>>>>>>>>"<<endl;
    cout<<"9.delete middle node >>>>"<<endl;
-   cout<<"10.close the program."<<endl<<endl<<endl;
+   cout<<"10.close the program."<<endl;
+   cout<<endl<<endl;
+   
    cout<<"Press Your Key>>>>>>";
-
    cin>>option;
    if(option==1){
     traverseForward();
@@ -313,3 +315,4 @@ else if(option==7){
           cout<<endl<<endl;
     goto Menu_of_Introduction ;
 }
+
