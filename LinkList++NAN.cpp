@@ -150,6 +150,27 @@ else if(NodeToDelete!=NULL){
  }
 
 }
+void searchValue(int value){
+    for(Node * current = head ; current != NULL; current=current->next) {
+         if(current->data==value)  {
+           cout<<"find the value !!!!!"<<endl;
+           return;
+         }
+         }
+         cout<<"value not found?????"<<endl;
+          return;
+
+}
+void searchPosition(int value){
+   int count1=1;
+    for(Node * current = head ; count1<=value; current=current->next,count1++) {
+         if(count1==value)  {
+           cout<<" the value is :"<<current->data<<"!!!!!"<<endl;
+           return;
+         }
+
+         }
+}
 
 
 int main(){
@@ -163,21 +184,23 @@ cout<<"======================================="<<endl;
  int i,n,input,option,previousNode,nextNode;
  creatLinkList();
    Menu_of_Introduction :
-       
+
    cout<<endl<<endl;
    cout<<"What do you want ?"<<endl;
    cout<<"1.traverse from forward>>"<<endl;
    cout<<"2.traverse from backward>>>"<<endl;
-   cout<<"3.insert at beginning >>>>>>>"<<endl;
-   cout<<"4.insert at ending >>>>>>>>>>>>>"<<endl;
-   cout<<"5.insert at after node >>>>>>>>>>>>>"<<endl;
-   cout<<"6.insert at before node >>>>>>>>>>>>"<<endl;
-   cout<<"7.delete at beginning >>>>>>>>>>"<<endl;
-   cout<<"8.delete at ending >>>>>>>>>>"<<endl;
-   cout<<"9.delete middle node >>>>"<<endl;
-   cout<<"10.close the program."<<endl;
+   cout<<"3.insert at beginning >>>>>>>>"<<endl;
+   cout<<"4.insert at ending >>>>>>>>>>>>>>"<<endl;
+   cout<<"5.insert at after node >>>>>>>>>>>>"<<endl;
+   cout<<"6.insert at before node >>>>>>>>>>>>>>"<<endl;
+   cout<<"7.delete at beginning >>>>>>>>>>>>>>>>>>>"<<endl;
+   cout<<"8.delete at ending >>>>>>>>>>>>>>>>>>>"<<endl;
+   cout<<"9.delete middle node >>>>>>>>>>>>>>"<<endl;
+   cout<<"10.search by value>>>>>>>>>>>>>>"<<endl;
+   cout<<"11.search by position >>>>>>>"<<endl;
+   cout<<"12.close the program.>>>>"<<endl;
    cout<<endl<<endl;
-   
+
    cout<<"Press Your Key>>>>>>";
    cin>>option;
    if(option==1){
@@ -296,7 +319,38 @@ else if(option==7){
     deleteMiddleNode(input);
     }
            }
-  else if(option==10){
+
+
+   else if(option==10){
+ cout<<"Now start search by value program........."<<endl<<endl;
+    cout<<"How many numbers you want to "<<endl;
+    cout<<"search by value >>>>";
+    cin>>n;
+    cout<<"Please put your input :";
+    for(i=1;i<=n;i++){
+    cout<<endl<<"Enter the value you want to search :";
+    cin>>input;
+    cout<<i<<"th element>>";
+    searchValue(input);
+    }
+           }
+
+
+  else if(option==11){
+ cout<<"Now start search by position program........."<<endl<<endl;
+    cout<<"How many numbers you want to "<<endl;
+    cout<<"search by position  >>>>";
+    cin>>n;
+    cout<<"Please put your input :";
+    for(i=1;i<=n;i++){
+    cout<<endl<<"Enter the potion you want to search :";
+    cin>>input;
+    cout<<i<<"th element>>";
+       searchPosition(input);
+    }
+           }
+
+  else if(option==12){
 
           cout<<"+++++++++++++++++++++++++++++++"<<endl;
           cout<<"+++++++++++Thanks!!!!++++++++++"<<endl;
@@ -315,4 +369,3 @@ else if(option==7){
           cout<<endl<<endl;
     goto Menu_of_Introduction ;
 }
-
