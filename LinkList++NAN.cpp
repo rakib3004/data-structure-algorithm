@@ -343,7 +343,7 @@ else if(option==7){
     cin>>n;
     cout<<"Please put your input :";
     for(i=1;i<=n;i++){
-    cout<<endl<<"Enter the potion you want to search :";
+    cout<<endl<<"Enter the position you want to search :";
     cin>>input;
     cout<<i<<"th element>>";
        searchPosition(input);
