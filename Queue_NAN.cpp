@@ -2,19 +2,29 @@
 
 using namespace std;
 int Queue[101];
- int rear =0, front1 =0;
+ int rear =0, front1 =0,range,item,option,number;
 
 void insert_Queue(int item){
- 
+     if(rear==range){
+        cout<<"Overflow??????"<<endl;
+        return ;
+     }
     rear = rear +1;
     Queue[rear]=item;
+    cout<<item+" is insert successfully"<<endl;
     return;
 
 }
 
 int delete_Queue(){
-    
 
+      if(front1==range+1) {
+        cout<<"Underflow!!!!!!!"<<endl;
+        return 0 ;
+      }
+      item = Queue[front1];
+      front1=front1+1;
+      return item;
 }
 
 void stop(){
@@ -34,18 +44,20 @@ void stop(){
 
 
 
-void main(){
+int main(){
 
 cout<<"########=======================########"<<endl;
 cout<<"********.......................********"<<endl;
 cout<<"_______ Welcome to Linear Queue________"<<endl;
 cout<<"********.......................********"<<endl;
 cout<<"########=======================########"<<endl;
- 
-  
- 
+
+     int result;
+
    Menu_of_Introduction :
-       
+
+    cout<<"Enter the size of your Queue"<<endl;
+    cin>>range;
 
    cout<<endl<<endl;
    cout<<"What do you want ?"<<endl;
@@ -58,11 +70,15 @@ cout<<"########=======================########"<<endl;
 
 
    if(option==1){
-   insert_Queue();
+       cout<<"Enter the number You want to insert";
+   cin>>number;
+
+   insert_Queue(number);
    }
 
    else if(option==2){
-    delete_Queue();
+   result = delete_Queue();
+   cout<<result+"is delete successfully!!!!!"<<endl;
            }
 
   else if(option==3){
@@ -76,5 +92,6 @@ cout<<"########=======================########"<<endl;
 
 
 
-
+goto Menu_of_Introduction ;
+return 0 ;
 }
