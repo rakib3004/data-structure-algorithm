@@ -150,35 +150,37 @@ else if(NodeToDelete!=NULL){
  }
 
 }
+void searchValue(int value){
+    for(Node * current = head ; current != NULL; current=current->next) {
+         if(current->data==value)  {
+           cout<<"find the value !!!!!"<<endl;
+           return;
+         }
+         }
+         cout<<"value not found?????"<<endl;
+          return;
 
+}
+void searchPosition(int value){
+   int count1=1;
+    for(Node * current = head ; count1<=value; current=current->next,count1++) {
+         if(count1==value)  {
+           cout<<" the value is :"<<current->data<<"!!!!!"<<endl;
+           return;
+         }
 
-int main(){
+         }
+}
+void traverse_menu(){
+     int i,n,input,option,previousNode,nextNode;
 
-cout<<"======================================="<<endl;
-cout<<"***************************************"<<endl;
-cout<<"________Welcome to this program________"<<endl;
-cout<<"***************************************"<<endl;
-cout<<"======================================="<<endl;
-
- int i,n,input,option,previousNode,nextNode;
- creatLinkList();
-   Menu_of_Introduction :
-   cout<<"Now start insert at beginning program........."<<endl<<endl;
-   cout<<"What do you want ?"<<endl;
-   cout<<"1.traverse from forward>>"<<endl;
+       cout<<"What do you want ?"<<endl;
+       cout<<"1.traverse from forward>>"<<endl;
    cout<<"2.traverse from backward>>>"<<endl;
-   cout<<"3.insert at beginning >>>>>>>"<<endl;
-   cout<<"4.insert at ending >>>>>>>>>>>>>"<<endl;
-   cout<<"5.insert at after node >>>>>>>>>>>>>"<<endl;
-   cout<<"6.insert at before node >>>>>>>>>>>>"<<endl;
-   cout<<"7.delete at beginning >>>>>>>>>>"<<endl;
-   cout<<"8.delete at ending >>>>>>>>>>"<<endl;
-   cout<<"9.delete middle node >>>>"<<endl;
-   cout<<"10.close the program."<<endl<<endl<<endl;
    cout<<"Press Your Key>>>>>>";
-
    cin>>option;
-   if(option==1){
+   cout<<endl<<endl;
+    if(option==1){
     traverseForward();
    }
 
@@ -186,7 +188,21 @@ cout<<"======================================="<<endl;
     traverseBackward();
            }
 
-  else if(option==3){
+
+}
+void insert_menu(){
+     int i,n,input,option,previousNode,nextNode;
+
+
+   cout<<"What do you want ?"<<endl;
+   cout<<"1.insert at beginning >>>>>>>>"<<endl;
+   cout<<"2.insert at ending >>>>>>>>>>>>>>"<<endl;
+   cout<<"3.insert at after node >>>>>>>>>>>>"<<endl;
+   cout<<"4.insert at before node >>>>>>>>>>>>>>"<<endl;
+   cout<<"Press Your Key>>>>>>";
+   cin>>option;
+   cout<<endl<<endl;
+   if(option==1){
     cout<<"Now start insert at beginning program........."<<endl<<endl;
     cout<<"How many numbers you want to"<<endl;
     cout<<"insert at beginning >>>>";
@@ -199,7 +215,7 @@ cout<<"======================================="<<endl;
     }
            }
 
-  else if(option==4){
+  else if(option==2){
     cout<<"Now start insert at ending program........."<<endl<<endl;
     cout<<"How many numbers you want to "<<endl;
     cout<<"insert at ending >>>>";
@@ -212,7 +228,7 @@ cout<<"======================================="<<endl;
     }
            }
 
-  else if(option==5){
+  else if(option==3){
         cout<<"Now start insert at after node program........."<<endl<<endl;
         cout<<"How many numbers you want to "<<endl;
         cout<<"insert at after node >>>>";
@@ -235,7 +251,7 @@ cout<<"======================================="<<endl;
            }
               }
 
-  else if(option==6){
+  else if(option==4){
         cout<<"Now start insert at before node program........."<<endl<<endl;
         cout<<"How many numbers you want to "<<endl;
         cout<<"insert at before node >>>>";
@@ -258,7 +274,19 @@ cout<<"======================================="<<endl;
            }
                 }
 
-else if(option==7){
+
+}
+void delete_menu(){
+     int i,n,input,option,previousNode,nextNode;
+
+       cout<<"What do you want ?"<<endl;
+   cout<<"1.delete at beginning >>>>>>>>>>>>>>>>>>>"<<endl;
+   cout<<"2.delete at ending >>>>>>>>>>>>>>>>>>>"<<endl;
+   cout<<"3.delete middle node >>>>>>>>>>>>>>"<<endl;
+   cout<<"Press Your Key>>>>>>";
+   cin>>option;
+   cout<<endl<<endl;
+   if(option==1){
     cout<<"Now start delete at beginning program........."<<endl<<endl;
     cout<<"How many numbers you want to "<<endl;
     cout<<"delete at beginning >>>>";
@@ -270,7 +298,7 @@ else if(option==7){
     }
            }
 
-  else if(option==8){
+  else if(option==2){
        cout<<"Now start delete at ending program........."<<endl<<endl;
     cout<<"How many numbers you want to "<<endl;
     cout<<"delete at ending >>>>";
@@ -281,7 +309,7 @@ else if(option==7){
         deleteLastdNode();
             }
                 }
-  else if(option==9){
+  else if(option==3){
  cout<<"Now start delete at middle program........."<<endl<<endl;
     cout<<"How many numbers you want to "<<endl;
     cout<<"delete at middle >>>>";
@@ -294,7 +322,55 @@ else if(option==7){
     deleteMiddleNode(input);
     }
            }
-  else if(option==10){
+
+
+}
+void search_menu(){
+     int i,n,input,option,previousNode,nextNode;
+
+       cout<<"What do you want ?"<<endl;
+
+   cout<<"1.search by value>>>>>>>>>>>>>>"<<endl;
+   cout<<"2.search by position >>>>>>>"<<endl;
+   cout<<"Press Your Key>>>>>>";
+   cin>>option;
+   cout<<endl<<endl;
+   if(option==1){
+ cout<<"Now start search by value program........."<<endl<<endl;
+    cout<<"How many numbers you want to "<<endl;
+    cout<<"search by value >>>>";
+    cin>>n;
+    cout<<"Please put your input :";
+    for(i=1;i<=n;i++){
+    cout<<endl<<"Enter the value you want to search :";
+    cin>>input;
+    cout<<i<<"th element>>";
+    searchValue(input);
+    }
+           }
+
+
+  else if(option==2){
+ cout<<"Now start search by position program........."<<endl<<endl;
+    cout<<"How many numbers you want to "<<endl;
+    cout<<"search by position  >>>>";
+    cin>>n;
+    cout<<"Please put your input :";
+    for(i=1;i<=n;i++){
+    cout<<endl<<"Enter the position you want to search :";
+    cin>>input;
+    cout<<i<<"th element>>";
+       searchPosition(input);
+    }
+           }
+
+
+
+
+}
+void close_menu(){
+cout<<"12.close the program.>>>>"<<endl;
+          cout<<endl<<endl;
 
           cout<<"+++++++++++++++++++++++++++++++"<<endl;
           cout<<"+++++++++++Thanks!!!!++++++++++"<<endl;
@@ -303,13 +379,66 @@ else if(option==7){
           cout<<"+++++++++++Good Bye++++++++++++"<<endl;
           cout<<"+++++++++++++++++++++++++++++++"<<endl;
           cout<<"+++++++++++++++++++++++++++++++"<<endl;
-          cout<<"+++tarafder++informatics++ltd++"<<endl;
+          cout<<"+++++Powered by : BSSE1129+++++"<<endl;
           cout<<"+++++++++++++++++++++++++++++++"<<endl;
+             cout<<endl<<endl;
 
-          return 0;
 
-           }
+          return ;
+}
+
+
+
+
+int main(){
+
+cout<<"======================================="<<endl;
+cout<<"***************************************"<<endl;
+cout<<"________Welcome to this program________"<<endl;
+cout<<"***************************************"<<endl;
+cout<<"======================================="<<endl;
+
+ int i,n,input,option,previousNode,nextNode;
+ creatLinkList();
+   Menu_of_Introduction :
+
+   cout<<endl<<endl;
+   cout<<"What do you want ?"<<endl;
+   cout<<"1.traverse at link list"<<endl;
+   cout<<"2.insert at link list"<<endl;
+   cout<<"3.delete at link list"<<endl;
+   cout<<"4.search at link list"<<endl;
+   cout<<"5.close the program"<<endl;
+
+
+
+
+   cout<<"Press Your Key>>>>>>";
+   cin>>option;
+   cout<<endl<<endl;
+   if(option==1){
+
+    traverse_menu();
+   }
+   else if(option==2){
+
+      insert_menu();
+   }
+   else if(option==3){
+
+       delete_menu();
+   }
+    else if(option==4){
+
+       search_menu();
+   }
+   else if(option==5){
+      close_menu();
+      return 0;
+
+   }
 
           cout<<endl<<endl;
     goto Menu_of_Introduction ;
 }
+
