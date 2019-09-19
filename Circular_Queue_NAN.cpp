@@ -9,13 +9,13 @@ void insert_Queue(int item){
 
      if(front1==0&&rear==0){
         front1==1;
-         rear = rear +1;
+         rear = 1;
          Queue[rear]=item;
-             cout<<item+" is insert successfully"<<endl;
-
+             cout<<"          "<<item<<"         is insert successfully"<<endl;
+     return ;
      }
      else if((front1==1&&rear==range)||(front1==rear+1)){
-           cout<<"Overflow!!!!!!!"<<endl;
+           cout<<"          "<<"            Overflow!!!!!"<<endl;
 
     return;
      }
@@ -23,14 +23,14 @@ void insert_Queue(int item){
 else if(rear==range){
     rear =1;
     Queue[rear] = item;
- cout<<item+" is insert successfully"<<endl;
-
+ cout<<"          "<<item<<"            is insert successfully"<<endl;
+   return ;
 }
 }
 int delete_Queue(){
 
       if(front1==0) {
-        cout<<"Underflow!!!!!!!"<<endl;
+        cout<<"          "<<"           Underflow!!!!!!!"<<endl;
         return 0 ;
       }
 
@@ -92,7 +92,7 @@ cout<<"########=======================########"<<endl;
 
 
    if(option==1){
-       cout<<"Enter the number You want to insert";
+       cout<<"Enter the number You want to insert>>>>>>";
    cin>>number;
 
    insert_Queue(number);
@@ -100,7 +100,7 @@ cout<<"########=======================########"<<endl;
 
    else if(option==2){
    result = delete_Queue();
-   cout<<result+"is delete successfully!!!!!"<<endl;
+   cout<<"         result"<<" is delete successfully!!!!!"<<endl;
            }
 
   else if(option==3){
