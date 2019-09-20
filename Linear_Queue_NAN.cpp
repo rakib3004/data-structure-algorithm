@@ -2,99 +2,130 @@
 
 using namespace std;
 int Queue[101];
- int rear =0, front1 =0,range,item,option,number;
+int rear,front,range,item,option,number;
 
-void insert_Queue(int item){
-     if(rear==range){
-        cout<<"    Overflow??????"<<endl;
+void insert_Queue(int item)
+{
+    if(front==0)
+    {
+         front=1;
+         rear=1;
+    }
+    else  if((front==1&&rear==range)||(rear==range+1))
+    {
+        cout<<"Overflow??????"<<endl;
+        cout<<"Rear:"<<rear<<" && "<<"Front:"<<front<<endl;
         return ;
-     }
-    rear = rear +1;
+    }
+
+    else
+    {
+        rear ++;
+    }
     Queue[rear]=item;
     cout<<item<<" is insert successfully"<<endl;
+    cout<<"Rear:"<<rear<<" && "<<"Front:"<<front<<endl;
     return;
-
 }
 
-int delete_Queue(){
+int delete_Queue()
+{
+    if(front==0)
+    {
+        return -1 ;
+    }
+    item = Queue[front];
 
-      if(front1==range+1) {
-        cout<<" Underflow!!!!!!!"<<endl;
-        return 0 ;
-      }
-      item = Queue[front1];
-      front1=front1+1;
-      return item;
+
+    if(front==rear)
+    {
+        front=0;
+        rear =0;
+        return item;
+    }
+
+    else {
+        front++;
+        return item;
+    }
+
+
+
 }
-
-void stop(){
-          cout<<"+++++++++++++++++++++++++++++++"<<endl;
-          cout<<"+++++++++++Thanks!!!!++++++++++"<<endl;
-          cout<<"+++++++++++++++++++++++++++++++"<<endl;
-          cout<<"+++++++++++++++++++++++++++++++"<<endl;
-          cout<<"+++++++++++Good Bye++++++++++++"<<endl;
-          cout<<"+++++++++++++++++++++++++++++++"<<endl;
-          cout<<"+++++++++++++++++++++++++++++++"<<endl;
-          cout<<"+++++Powered By : BSSE1129+++++"<<endl;
-          cout<<"+++++++++++++++++++++++++++++++"<<endl;
-
-
+void traverse_Queue()
+{
+    cout<<"|";
+    for(int iterator = front ; iterator<=rear ; iterator++)
+        {
+        cout<<Queue[iterator]<<"|";
+    }
+    cout<<endl;
 }
+void stop()
+{
+    cout<<"+++++++++++++++++++++++++++++++"<<endl;
+    cout<<"+++++++++++Thanks!!!!++++++++++"<<endl;
+    cout<<"+++++++++++++++++++++++++++++++"<<endl;
+    cout<<"+++++++++++++++++++++++++++++++"<<endl;
+    cout<<"+++++++++++Good Bye++++++++++++"<<endl;
+    cout<<"+++++++++++++++++++++++++++++++"<<endl;
+    cout<<"+++++++++++++++++++++++++++++++"<<endl;
+    cout<<"+++++Powered By : BSSE1129+++++"<<endl;
+    cout<<"+++++++++++++++++++++++++++++++"<<endl;
+}
+int main()
+{
 
-
-
-
-int main(){
-
-cout<<"########=======================########"<<endl;
-cout<<"********.......................********"<<endl;
-cout<<"_______ Welcome to Linear Queue________"<<endl;
-cout<<"********.......................********"<<endl;
-cout<<"########=======================########"<<endl;
-
-     int result;
-
-
-    cout<<"Enter the size of your Queue";
+    cout<<"########=======================########"<<endl;
+    cout<<"********.......................********"<<endl;
+    cout<<"_______ Welcome to Linear Queue________"<<endl;
+    cout<<"********.......................********"<<endl;
+    cout<<"########=======================########"<<endl;
+    int result;
+rear =0, front =0;
+    cout<<"Enter the size of your Queue>>>>";
     cin>>range;
-   Menu_of_Introduction :
+Menu_of_Introduction :
+    cout<<endl<<endl;
+    cout<<"What do you want ?"<<endl;
+    cout<<"1.Insert at Queue>>"<<endl;
+    cout<<"2.Delete at Queue>>"<<endl;
+    cout<<"3.Traverse at Queue>>"<<endl;
+    cout<<"4.Stop the program"<<endl;
+    cout<<endl<<endl;
+    cout<<"Press Your Key>>>>>>";
+    cin>>option;
+    if(option==1)
+    {
+        cout<<"Enter the number You want to insert>>>>";
+        cin>>number;
+        insert_Queue(number);
+    }
+    else if(option==2)
+    {
+        result = delete_Queue();
+        if(result==-1)
+        {
+            cout<<" Underflow!!!!!!!"<<endl;
+            cout<<"Rear:"<<rear<<" && "<<"Front:"<<front<<endl;
+        }
+        cout<<result<<" is delete successfully!!!!!"<<endl;
+        cout<<"Rear:"<<rear<<" && "<<"Front:"<<front<<endl;
+    }
+    else if(option==3)
+    {
+        traverse_Queue();
+    }
+    else if(option==4)
+    {
+        stop();
+        return 0;
+    }
+    else
+    {
+        goto Menu_of_Introduction ;
+    }
 
-   cout<<endl<<endl;
-   cout<<"What do you want ?"<<endl;
-   cout<<"1.Insert at Queue>>"<<endl;
-   cout<<"2.Delete at Queue>>"<<endl;
-   cout<<"3.Stop the program"<<endl;
-   cout<<endl<<endl;
-   cout<<"Press Your Key>>>>>>";
-   cin>>option;
-
-
-   if(option==1){
-       cout<<"Enter the number You want to insert";
-   cin>>number;
-
-   insert_Queue(number);
-   }
-
-   else if(option==2){
-   result = delete_Queue();
-   cout<<result<<" is delete successfully!!!!!"<<endl;
-           }
-
-  else if(option==3){
-   stop();
-   return 0;
-
-  }
-
-  else{
- goto Menu_of_Introduction ;
-   }
-
-
-
-goto Menu_of_Introduction ;
-return 0 ;
+    goto Menu_of_Introduction ;
+    return 0 ;
 }
-
-
