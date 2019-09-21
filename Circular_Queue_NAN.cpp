@@ -75,9 +75,13 @@ void traverse_Queue()
     cout<<"|";
     for(int iterator = front ; iterator<=rear ; iterator++)
     {
-        iterator = iterator%range;
-
+       
         cout<<Queue[iterator]<<"|";
+        if(iterator==range)  {
+            iterator=0;
+        }
+
+    
 
     }
     cout<<endl;
