@@ -1,18 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
 int array[100];
-int heap_size = 7;
-int parent(int i)
+
+int parent(int iterator)
 {
-    return i/2;
+    return iterator/2;
 }
-int left_leaf(int i)
+int left_leaf(int iterator)
 {
-    return i*2;
+    return iterator*2;
 }
-int right_leaf(int i)
+int right_leaf(int iterator)
 {
-    return i*2+1;
+    return iterator*2+1;
 }
 
     void heapify(int array[],int iterator,int heap_size){
@@ -64,15 +64,25 @@ int right_leaf(int i)
 int main()
 {
     int iterator;
+int heap_size;
+cout<<"How many number you want to enter into heap :";
+cin>>heap_size;
+
     for(iterator=1;iterator<=heap_size;iterator++)
-    {
+    {   cout<<iterator<<"th element :";
         cin>>array[iterator];
+        cout<<endl;
     }
+
     bulid_heap(array,heap_size);
     heap_sort(array,heap_size);
+
+    cout<<"Heap Sort Complete!!!!!!!"<<endl;
+    cout<<"Sorted element are ::::::"<<endl;
     for(iterator=1;iterator<=heap_size;iterator++)
     {
 cout<<array[iterator]<<endl;
     }
+
     return 0;
 }
