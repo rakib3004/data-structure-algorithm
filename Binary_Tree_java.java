@@ -1,6 +1,8 @@
 package UserSection;
 
 
+import java.util.Scanner;
+
 public class Node {
     Node left, right;
     int data;
@@ -24,17 +26,72 @@ public class Node {
                 right.insert(value);
             }
         }
-
-
     }
+
+
+
+
+/* public  Node minValue(Node root)
+    {
+        Node minv = root;
+        while (root.left != null)
+        {
+            minv = root.left;
+            root = root.left;
+        }
+        return minv;
+    }
+
+    public Node delete( Node root,int value){
+if(root==null){
+    return root ;
+}
+else if(value<data){
+    left.delete(root,value);
+}
+else if(value>data){
+    right.delete(root,value);
+}
+
+else{
+if(left==null&&right==null){
+    root = null;
+
+}
+else if(root.left==null){
+    Node temp = root;
+    root= root.left;
+    temp = null;
+}
+else if(root.right==null){
+    Node temp = root;
+    root= root.right;
+    temp = null;
+}
+else {
+    Node temp = minValue(root.right);
+    root.data = temp.data;
+    root.right = delete(root.right,temp.data);
+
+
+}
+
+}
+return root;
+    }*/
+
 
 
     public boolean find(int value) {
 if(value==data){
+    System.out.println("Find the item");
+
     return true;
 }
 else if(value<data){
     if(left==null){
+        System.out.println("Item not found!!!!!!!");
+
         return  false;
     }
     else{
@@ -44,6 +101,8 @@ else if(value<data){
 }
 else if(value<data){
     if(right==null){
+        System.out.println("Item not found!!!!!!!");
+
         return  false;
     }
     else{
@@ -51,7 +110,7 @@ else if(value<data){
     }
 
 }
-return false;
+return true;
     }
 
 public void printInOrder(){
@@ -101,21 +160,55 @@ public void printInOrder(){
         }
 
     public static void main(String[] args) {
-        Node node = new Node(16);
+        Scanner scan = new Scanner(System.in);
 
-        node.insert(14);
-        node.insert(54);
-        node.insert(4);
-        node.insert(6);
-        node.insert(2);
-        node.insert(20);
-        node.insert(9);
-        node.insert(7);
-        node.insert(15);
+        System.out.print("Enter the root value : ");
+        int root = scan.nextInt();
+        Node node = new Node(root);
 
-        node.printInOrder();
+          int iterator;
 
+        System.out.print("How many number you want to  insert :");
+        int number = scan.nextInt();
+int enter;
+for(iterator=1;iterator<=number;iterator++){
+    enter = scan.nextInt();
+    node.insert(enter);
 
+}
+
+        System.out.println("Enter Your Choice");
+        System.out.println("1.print in  order");
+        System.out.println("2.print  pre order ");
+        System.out.println("3.print post order");
+
+int button = scan.nextInt();
+
+if(button==1){
+    node.printInOrder();
+}
+else if(button==2){
+    node.printPreOrder();
+}
+else if(button==3){
+    node.printPostOrder();
+}
+
+        System.out.print("How many number you want to  find :");
+        int number2 = scan.nextInt();
+        int enter2;
+        for(iterator=1;iterator<=number2;iterator++){
+            enter2 = scan.nextInt();
+       boolean user=  node.find(enter2);
+     /*  if(user==true){
+           System.out.println("Find the item");
+       }
+       else {
+           System.out.println("Item not found!!!!!!!");
+
+       }*/
+
+        }
 
     }
 
