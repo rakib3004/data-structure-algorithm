@@ -1,11 +1,26 @@
 #include<bits/stdc++.h>
 using namespace std;
+int array[100];
+int heap_size = 7;
+int parent(int i)
+{
+    return i/2;
+}
+int left_leaf(int i)
+{
+    return i*2;
+}
+int right_leaf(int i)
+{
+    return i*2+1;
+}
 
     void heapify(int array[],int iterator,int heap_size){
 
         int left,right;
-        left = array[iterator-1];
-        right = array[iterator+1];
+        left =left_leaf(iterator) ;
+        right =right_leaf(iterator);
+
         int largest;
         if((left<=heap_size)&&(array[left]>array[iterator])){
           largest = left;
@@ -20,46 +35,44 @@ using namespace std;
 
         if(largest!=iterator){
             swap(array[iterator],array[largest]);
-            heapify(array[],largest);
+            heapify(array,largest,heap_size);
         }
         else{
             return ;
         }
 
     }
-    void bulid_heap( int array[]){
-        
-     int array_size,heap_size;
-      array_size=7;
-      heap_size=array_size;
-      int iterator;
-      for(iterator=(array_size/2);iterator>=1;iterator--){
-         heapify(array[],iterator,heap_size);
+    void bulid_heap( int array[],int heap_size){
 
+
+      int iterator;
+      for(iterator=(heap_size/2);iterator>=1;iterator--){
+         heapify(array,iterator,heap_size);
       }
-    
     }
-    void heap_sort(int array_size){
+
+
+    void heap_sort(int array[],int heap_size){
                int iterator;
-               int heap_size=array_size;
-       bulid_heap(array[],array_size);
-       for(iterator=array_size;iterator>=2;iterator--){         
+       bulid_heap(array,heap_size);
+       for(iterator=heap_size;iterator>=2;iterator--){
         swap(array[1],array[iterator]);
         heap_size--;
-        heapify(array[],1);
-                
+        heapify(array,1,heap_size);
        }
-       
-       
-       
     }
-    
-int main(){
-
-   int array[7]={10,7,13,5,6,4,9};          
-int array_size;
-      array_size=7;
-      heap_sort(array[],array_size);
-
-return 0;
+int main()
+{
+    int iterator;
+    for(iterator=1;iterator<=heap_size;iterator++)
+    {
+        cin>>array[iterator];
+    }
+    bulid_heap(array,heap_size);
+    heap_sort(array,heap_size);
+    for(iterator=1;iterator<=heap_size;iterator++)
+    {
+cout<<array[iterator]<<endl;
+    }
+    return 0;
 }
