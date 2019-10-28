@@ -7,6 +7,19 @@ using namespace std;
 
 int G[100][100]/*={0}*/,color[100],d[100],prev[100],q[100];
 int front = 0 , rear =0;
+void print_path(int s, int v){
+    if(s==v){
+        cout<<s<<"->";
+    }
+    else if(prev[v]==-1){
+        cout<<"No Path";
+    }
+
+    else{
+        print_path(s,prev[v]);
+        cout<<v<<"->";
+    }
+}
 void  BFS(int s , int n){
 int u;
     for(int i =0;i<n;i++){
@@ -43,9 +56,9 @@ cout<<"Enter Number of nodes: ";
 cin>>n;
 cout<<"Enter Number of edges: ";
 cin>>e;
-cout<<"Enter Number of sources: ";
-cin>>s;
-
+//cout<<"Enter Number of sources: ";
+//cin>>s;
+s=0;
 //for(i=0;i<n;i++){
 //    for(j=0;j<n;j++){
 //        G[i][j]=0;
@@ -81,7 +94,7 @@ for(i=0;i<n;i++){
 }
 
     cout<<endl;
-
+print_path(2,7);
 
 return 0;
 
