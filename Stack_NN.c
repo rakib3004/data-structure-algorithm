@@ -34,7 +34,7 @@ G:
             printf("The item you want to push>>>");
             scanf("%d",&a[k]);
             k++;
-            printf("\n\nPush Successful!!!!\n\n\n")
+            printf("\n\nPush Successful!!!!\n\n\n");
             for(i=0; i<k; i++)
             {
             printf("Item no %d : %d\n",i+1,a[i]);
