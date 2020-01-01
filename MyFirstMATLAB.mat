@@ -1,0 +1,23 @@
+a =((2*6)/6+(5-8)*2)^3+(78*sin(pi/2))
+
+x=5;
+y= x+5
+z= y-2;
+format bank
+a_variable = (9*5)-(4+2);
+
+myRoll_sqrt = sqrt(1129)
+
+v_array= 11803004/myRoll_sqrt
+
+initial_valocity = 15;
+accelaration = 4;
+time = 15;
+
+mass = 50
+final_valocity = initial_valocity + (accelaration * time)
+distance =( initial_valocity * time) + (.5 *accelaration *time * time )
+
+kinitic_Energy = .5 * mass * final_valocity *  final_valocity
+format rat 
+ep = 24/512
