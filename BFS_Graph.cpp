@@ -5,18 +5,18 @@ using namespace std;
 #define BLACK 2
 
 
-int G[100][100]/*={0}*/,color[100],d[100],prev[100],q[100];
+int G[100][100]/*={0}*/,color[100],d[100],previous[100],q[100];
 int front = 0 , rear =0;
 void print_path(int s, int v){
     if(s==v){
         cout<<s<<"->";
     }
-    else if(prev[v]==-1){
+    else if(previous[v]==-1){
         cout<<"No Path";
     }
 
     else{
-        print_path(s,prev[v]);
+        print_path(s,previous[v]);
         cout<<v<<"->";
     }
 }
@@ -26,12 +26,12 @@ int u;
 
         color[i]=WHITE;
         d[i]=99999;
-        prev[i]=-1;
+        previous[i]=-1;
 
     }
     color[s]=GRAY;
     d[s]=0;
-    prev[s]=0;
+    previous[s]=0;
 
     q[rear++]=s;
     while(front!=rear){
@@ -41,12 +41,13 @@ int u;
                 if(color[v]==WHITE){
                     color[v]=GRAY;
                     d[v]=d[u]+1;
-                    prev[v]=u;
+                    previous[v]=u;
                     q[rear++]=v;
 
                 }
             }
         }
+       color[u]=BLACK;
     }
 }
 
@@ -90,7 +91,7 @@ for(i=0;i<n;i++){
 
     cout<<endl;
 for(i=0;i<n;i++){
-        cout<<prev[i]<<" ";
+        cout<<previous[i]<<" ";
 }
 
     cout<<endl;
