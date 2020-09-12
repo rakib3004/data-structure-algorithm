@@ -11,7 +11,6 @@ public class Node {
         this.data = data;
     }
 
-
     public void insert(int value) {
         if (value <= data) {
             if (left == null) {
@@ -27,59 +26,6 @@ public class Node {
             }
         }
     }
-
-
-
-
-/* public  Node minValue(Node root)
-    {
-        Node minv = root;
-        while (root.left != null)
-        {
-            minv = root.left;
-            root = root.left;
-        }
-        return minv;
-    }
-
-    public Node delete( Node root,int value){
-if(root==null){
-    return root ;
-}
-else if(value<data){
-    left.delete(root,value);
-}
-else if(value>data){
-    right.delete(root,value);
-}
-
-else{
-if(left==null&&right==null){
-    root = null;
-
-}
-else if(root.left==null){
-    Node temp = root;
-    root= root.left;
-    temp = null;
-}
-else if(root.right==null){
-    Node temp = root;
-    root= root.right;
-    temp = null;
-}
-else {
-    Node temp = minValue(root.right);
-    root.data = temp.data;
-    root.right = delete(root.right,temp.data);
-
-
-}
-
-}
-return root;
-    }*/
-
 
 
     public boolean find(int value) {
@@ -200,13 +146,7 @@ else if(button==3){
         for(iterator=1;iterator<=number2;iterator++){
             enter2 = scan.nextInt();
        boolean user=  node.find(enter2);
-     /*  if(user==true){
-           System.out.println("Find the item");
-       }
-       else {
-           System.out.println("Item not found!!!!!!!");
-
-       }*/
+ 
 
         }
 
